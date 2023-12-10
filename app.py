@@ -10,7 +10,7 @@ px.defaults.color_continuous_scale = 'reds'
 with open("data_input/used_data.pickle", 'rb') as f:
     data = pickle.load(f)
 
-st.header(':yt: Prediksi Trending YouTube')
+st.title('🎥 Prediksi Trending YouTube')
 
 # Input tanggal
 min_date = data['trending_date'].min()
