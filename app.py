@@ -10,7 +10,7 @@ px.defaults.color_continuous_scale = 'reds'
 with open("data_input/used_data.pickle", 'rb') as f:
     data = pickle.load(f)
 
-st.title(":yt: Prediksi Trending YouTube")
+st.title(':yt: Prediksi Trending YouTube')
 
 # Input tanggal
 min_date = data['trending_date'].min()
@@ -30,13 +30,14 @@ outputs = data[(data['trending_date'] >= start_date) &
 if category != "All Categories":
     outputs = outputs[outputs['category'] == category]
 
-st.markdown("Prediksi Dari Like,Dislike,dan Comment")
 # Visualisasi dengan bar chart
+st.header(':video_camera: Channel')
 bar_data = outputs['channel_name'].value_counts().nlargest(10).sort_values()
 fig = px.bar(bar_data, color=bar_data, orientation='h', title=f'Channel Terpopuler dari kategori {category}')
 st.plotly_chart(fig)
 
 # Visualisasi dengan scatter plot
+st.header(':bulb: Engagement')
 col1, col2 = st.columns(2)
 metrics_choice = ['like', 'dislike', 'comment']
 choice_1 = col1.selectbox('Horizontal', options=metrics_choice)
