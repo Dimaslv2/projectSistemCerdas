@@ -30,6 +30,7 @@ outputs = data[(data['trending_date'] >= start_date) &
 if category != "All Categories":
     outputs = outputs[outputs['category'] == category]
 
+st.markdown("Prediksi Dari Like,Dislike,dan Comment")
 # Visualisasi dengan bar chart
 bar_data = outputs['channel_name'].value_counts().nlargest(10).sort_values()
 fig = px.bar(bar_data, color=bar_data, orientation='h', title=f'Channel Terpopuler dari kategori {category}')
