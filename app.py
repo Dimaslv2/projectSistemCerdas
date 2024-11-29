@@ -15,10 +15,17 @@ st.title('🎥 Prediksi Trending YouTube')
 # Input tanggal
 min_date = data['trending_date'].min()
 max_date = data['trending_date'].max()
-start_date, end_date = st.sidebar.date_input(label='Rentang Waktu',
-                                            min_value=min_date,
-                                            max_value=max_date,
-                                            value=[min_date, max_date])
+dates = st.sidebar.date_input(label='Rentang Waktu',
+                               min_value=min_date,
+                               max_value=max_date,
+                               value=[min_date, max_date])
+
+# Validasi input tanggal
+if len(dates) == 1:
+    st.sidebar.error("Harap pilih dua tanggal untuk rentang waktu!")
+    st.stop()
+elif len(dates) == 2:
+    start_date, end_date = dates
 
 # Input kategori
 categories = ["All Categories"] + list(data['category'].value_counts().keys().sort_values())
