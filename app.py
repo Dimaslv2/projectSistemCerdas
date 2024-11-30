@@ -24,6 +24,7 @@ def dataset_description():
         - **Description**: Deskripsi video.
 
         Dataset ini cocok untuk menganalisis tren, popularitas, dan keterlibatan video di platform YouTube.
+        DIbuat oleh Muhammad DImas M
         """
     )
 
